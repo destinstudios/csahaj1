@@ -1,13 +1,10 @@
-/* Public website configuration. Firebase web config is not a private key.
-   Paste the COMPLETE config object from Firebase Console > Project settings > Your apps.
-   Never place a service-account private key in this file. */
 window.SAHAJ_CONFIG = {
   whatsappNumber: "919648909066",
   phoneNumber: "9648909066",
   address: "Lihai, Dhata-Khaga Road, Dhata, Fatehpur, Uttar Pradesh 212641",
   mapsUrl: "https://maps.app.goo.gl/ABQ8n3E2XBSCsh1X6",
   adminEmails: [
-    "adityasinghworks1612@gmail.com",
+    "shauryasahaj@gmail.com",
     "adityasinghzrx@gmail.com"
   ],
   firebase: {
