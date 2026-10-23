@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin Panel | Chandan Sahaj JanSeva Kendra</title><link rel="stylesheet" href="css/style.css"><script defer src="js/config.js"></script><script defer src="js/common.js"></script><script type="module" src="js/admin.js"></script></head>
+<body class="admin-body"><header class="admin-top"><div class="container admin-top-inner"><a class="brand" href="index.html"><span class="brand-mark">CS</span><span><strong>Chandan Sahaj</strong><small>Admin Dashboard</small></span></a><a class="text-link" href="index.html">← View website</a></div></header>
+<main class="admin-main container"><div class="admin-heading"><div><span class="eyebrow">OWNER CONTROL PANEL</span><h1>Services <span>Dashboard</span></h1><p>Add and manage the services shown on your website.</p></div><span class="admin-status" id="connection-status">Checking setup…</span></div>
+<div class="notice notice-warning" id="setup-notice"><strong>Setup required:</strong> Firebase is not connected yet. Google Sign-In and cloud syncing work after you add your Firebase web configuration, enable Google Authentication, and publish the matching Firestore rules. No demo login is used.</div>
+<section class="admin-login-card" id="login-panel"><div class="login-symbol">🔐</div><h2>Owner sign in</h2><p>Choose an authorized Google account to manage services.</p><button id="google-login-btn" class="btn btn-primary btn-full" type="button">Sign in with Google</button><p id="login-message" class="form-note" role="status" aria-live="polite"></p><p class="form-note">Only the emails listed in <code>js/config.js</code> can access the dashboard. Firebase must be configured first.</p></section>
+<section id="dashboard" hidden>
+  <div class="dashboard-toolbar"><div><h2>Manage services</h2><p id="admin-welcome">Signed in as owner</p></div><div class="toolbar-actions"><button id="add-service-btn" class="btn btn-primary">＋ Add New Service</button><button id="logout-btn" class="btn btn-light">Sign out</button></div></div>
+  <div class="stats-grid"><div class="stat-card"><small>Total services</small><strong id="total-count">0</strong></div><div class="stat-card"><small>Published</small><strong id="published-count">0</strong></div><div class="stat-card"><small>Hidden</small><strong id="hidden-count">0</strong></div></div>
+  <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Service</th><th>Category</th><th>Fee</th><th>Status</th><th>Actions</th></tr></thead><tbody id="admin-services"></tbody></table></div>
+  <div class="notice" id="data-notice">Published services are loaded from Firestore on the public website. Starter examples are not automatically written to your database.</div>
+  <form id="service-editor" class="editor-card" hidden>
+    <div class="editor-heading"><div><span class="eyebrow">SERVICE DETAILS</span><h2 id="editor-title">Add a service</h2></div><button type="button" class="icon-button" id="close-editor" aria-label="Close form">×</button></div>
+    <input type="hidden" id="service-id">
+    <div class="form-grid"><div><label for="service-name">Service name *</label><input id="service-name" required maxlength="100" placeholder="e.g. Scholarship Forms"></div>
+    <div><label for="service-price">Fee label</label><input id="service-price" maxlength="80" placeholder="e.g. From ₹100 / Ask for fee"></div>
+    <div><label for="service-category-input">Category</label><select id="service-category-input"><option value="forms">Forms & Applications</option><option value="documents">Documents & Certificates</option><option value="payments">Payments & Other</option></select></div>
+    <div><label for="service-icon">Icon / emoji</label><input id="service-icon" maxlength="8" placeholder="📄"></div>
+    <div class="full-span"><label for="service-description">Description *</label><textarea id="service-description" rows="3" required maxlength="400" placeholder="Briefly describe the service"></textarea></div>
+    <div class="full-span"><label class="checkbox-label"><input id="service-published" type="checkbox" checked> Publish on website</label></div></div>
+    <div class="editor-actions"><button type="submit" class="btn btn-primary">Save service</button><button type="button" id="cancel-editor" class="btn btn-light">Cancel</button></div><p id="editor-message" class="form-note" role="status"></p>
+  </form>
+</section>
+</main><footer class="admin-footer"><div class="container">Chandan Sahaj JanSeva Kendra · Admin access is restricted to the authorized owner.</div></footer></body></html>

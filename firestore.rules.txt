@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in [
+          "adityasinghworks1612@gmail.com",
+          "SECOND_ADMIN_EMAIL@gmail.com"
+        ];
+    }
+
+    match /services/{serviceId} {
+      // Visitors can read published services. Verified listed admins can read all.
+      allow read: if isAdmin() || resource.data.published == true;
+      // Only listed, verified admins can create, update, publish or delete services.
+      allow create, update, delete: if isAdmin();
+    }
+  }
+}

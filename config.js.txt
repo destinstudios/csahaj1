@@ -1,0 +1,29 @@
+/* Public website configuration. Firebase web config is not a private key.
+   Paste the COMPLETE config object from Firebase Console > Project settings > Your apps.
+   Never place a service-account private key in this file. */
+window.SAHAJ_CONFIG = {
+  whatsappNumber: "919648909066",
+  phoneNumber: "9648909066",
+  address: "Lihai, Dhata-Khaga Road, Dhata, Fatehpur, Uttar Pradesh 212641",
+  mapsUrl: "https://maps.app.goo.gl/ABQ8n3E2XBSCsh1X6",
+  adminEmails: [
+    "adityasinghworks1612@gmail.com",
+    "SECOND_ADMIN_EMAIL@gmail.com" // Replace with the second admin's real email
+  ],
+  firebase: {
+    apiKey: "PASTE_COMPLETE_FIREBASE_API_KEY",
+    authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
+    projectId: "PASTE_PROJECT_ID",
+    storageBucket: "PASTE_PROJECT_ID.firebasestorage.app",
+    messagingSenderId: "PASTE_MESSAGING_SENDER_ID",
+    appId: "PASTE_APP_ID"
+  }
+};
+window.SAHAJ_FIREBASE_READY = Boolean(
+  window.SAHAJ_CONFIG.firebase.apiKey &&
+  !window.SAHAJ_CONFIG.firebase.apiKey.startsWith("PASTE_") &&
+  window.SAHAJ_CONFIG.firebase.projectId &&
+  !window.SAHAJ_CONFIG.firebase.projectId.startsWith("PASTE_") &&
+  window.SAHAJ_CONFIG.firebase.appId &&
+  !window.SAHAJ_CONFIG.firebase.appId.startsWith("PASTE_")
+);

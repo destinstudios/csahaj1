@@ -1,0 +1,23 @@
+(() => {
+  const cfg = window.SAHAJ_CONFIG || {};
+  const digits = (cfg.whatsappNumber || "").replace(/\D/g, "");
+  document.querySelectorAll("[data-whatsapp]").forEach(a => {
+    a.href = digits ? `https://wa.me/${digits}?text=${encodeURIComponent("Namaste, mujhe Chandan Sahaj JanSeva Kendra ki services ke baare mein jaankari chahiye.")}` : "#";
+    a.target = "_blank"; a.rel = "noopener";
+  });
+  document.querySelectorAll("[data-service-whatsapp]").forEach(a => {
+    const service = a.getAttribute("data-service-whatsapp") || "a service";
+    a.href = digits ? `https://wa.me/${digits}?text=${encodeURIComponent(`Namaste, mujhe ${service} ke baare mein details aur fees chahiye.`)}` : "#";
+    a.target = "_blank"; a.rel = "noopener";
+  });
+  document.querySelectorAll("[data-phone]").forEach(a => { a.href = `tel:${(cfg.phoneNumber || "").replace(/\s/g,"")}`; });
+  document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+  if (toggle && nav) toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  const map = document.getElementById("maps-link");
+  if (map) map.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cfg.mapsQuery || cfg.address || "")}`;
+})();
