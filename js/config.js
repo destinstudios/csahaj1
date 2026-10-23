@@ -8,16 +8,17 @@ window.SAHAJ_CONFIG = {
   mapsUrl: "https://maps.app.goo.gl/ABQ8n3E2XBSCsh1X6",
   adminEmails: [
     "adityasinghworks1612@gmail.com",
-    "SECOND_ADMIN_EMAIL@gmail.com" // Replace with the second admin's real email
+    "adityasinghzrx@gmail.com"
   ],
   firebase: {
-    apiKey: "PASTE_COMPLETE_FIREBASE_API_KEY",
-    authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-    projectId: "PASTE_PROJECT_ID",
-    storageBucket: "PASTE_PROJECT_ID.firebasestorage.app",
-    messagingSenderId: "PASTE_MESSAGING_SENDER_ID",
-    appId: "PASTE_APP_ID"
-  }
+  apiKey: "AIzaSyCSLRivs-ZXOTWMStgfmP1xAdRXDSFzUwk",
+  authDomain: "chandan-sahaj.firebaseapp.com",
+  databaseURL: "https://chandan-sahaj-default-rtdb.firebaseio.com",
+  projectId: "chandan-sahaj",
+  storageBucket: "chandan-sahaj.firebasestorage.app",
+  messagingSenderId: "599153312755",
+  appId: "1:599153312755:web:ddebf125c39a9494314886"
+}
 };
 window.SAHAJ_FIREBASE_READY = Boolean(
   window.SAHAJ_CONFIG.firebase.apiKey &&
